@@ -572,7 +572,6 @@ class pisaFileObject:
                         self.mimetype = urlResponse.info().get("Content-Type", '').split(";")[0]
                         self.uri = urlResponse.geturl()
                         self.file = urlResponse
-
             else:
 
                 # Local data
