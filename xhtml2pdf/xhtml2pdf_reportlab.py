@@ -529,9 +529,9 @@ class PmlParagraph(Paragraph, PmlMaxHeightMixIn):
                 img = frag.cbDefn
                 # print "before", img.width, img.height
                 width = min(img.width, availWidth)
-                wfactor = float(width) / img.width
+                wfactor = float(width) / (img.width or 1)
                 height = min(img.height, availHeight * MAX_IMAGE_RATIO)  # XXX 99% because 100% do not work...
-                hfactor = float(height) / img.height
+                hfactor = float(height) / (img.height or 1)
                 factor = min(wfactor, hfactor)
                 img.height = img.height * factor
                 img.width = img.width * factor
@@ -999,3 +999,4 @@ class HandAnnotation(Flowable):
         canvas.scale(self.scale, self.scale)
         hand(canvas, debug=0, fill=1)
 """
+
